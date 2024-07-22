@@ -1,0 +1,764 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:sc="http://www.example.org/completesupplychain#">
+
+  <owl:Ontology rdf:about="http://www.example.org/completesupplychain"/>
+
+  <!-- Main Class -->
+  <owl:Class rdf:about="#SupplyChainConcept">
+    <rdfs:comment>The main class encompassing all supply chain concepts.</rdfs:comment>
+  </owl:Class>
+
+  <!-- Supplier-related Classes -->
+  <owl:Class rdf:about="#Supplier">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+    <rdfs:comment>A supplier in the supply chain.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#SupplierEvaluation">
+    <rdfs:subClassOf rdf:resource="#Supplier"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SupplierPerformance">
+    <rdfs:subClassOf rdf:resource="#Supplier"/>
+  </owl:Class>
+
+  <!-- Manufacturer-related Classes -->
+  <owl:Class rdf:about="#Manufacturer">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RawMaterial">
+    <rdfs:subClassOf rdf:resource="#Manufacturer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ComponentPart">
+    <rdfs:subClassOf rdf:resource="#Manufacturer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#FinishedGood">
+    <rdfs:subClassOf rdf:resource="#Manufacturer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ProductionLine">
+    <rdfs:subClassOf rdf:resource="#Manufacturer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#QualityControl">
+    <rdfs:subClassOf rdf:resource="#Manufacturer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PackagingMaterial">
+    <rdfs:subClassOf rdf:resource="#Manufacturer"/>
+  </owl:Class>
+
+  <!-- Distributor-related Classes -->
+  <owl:Class rdf:about="#Distributor">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ShippingContainer">
+    <rdfs:subClassOf rdf:resource="#Distributor"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TransportVehicle">
+    <rdfs:subClassOf rdf:resource="#Distributor"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DistributionCenter">
+    <rdfs:subClassOf rdf:resource="#Distributor"/>
+  </owl:Class>
+
+  <!-- Retailer-related Classes -->
+  <owl:Class rdf:about="#Retailer">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#OnlineRetailer">
+    <rdfs:subClassOf rdf:resource="#Retailer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PhysicalStore">
+    <rdfs:subClassOf rdf:resource="#Retailer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RetailStore">
+    <rdfs:subClassOf rdf:resource="#Retailer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SalesRegion">
+    <rdfs:subClassOf rdf:resource="#Retailer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PromotionalCampaign">
+    <rdfs:subClassOf rdf:resource="#Retailer"/>
+  </owl:Class>
+
+  <!-- Customer-related Classes -->
+  <owl:Class rdf:about="#Customer">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#WholesaleCustomer">
+    <rdfs:subClassOf rdf:resource="#Customer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#RetailCustomer">
+    <rdfs:subClassOf rdf:resource="#Customer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CustomerSegment">
+    <rdfs:subClassOf rdf:resource="#Customer"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CustomerFeedback">
+    <rdfs:subClassOf rdf:resource="#Customer"/>
+  </owl:Class>
+
+  <!-- Product-related Classes -->
+  <owl:Class rdf:about="#Product">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+    <rdfs:comment>A product that is part of the supply chain.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Order">
+    <rdfs:subClassOf rdf:resource="#Product"/>
+    <rdfs:comment>An order placed by a customer in the supply chain.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Shipment">
+    <rdfs:subClassOf rdf:resource="#Product"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Inventory">
+    <rdfs:subClassOf rdf:resource="#Product"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Warehouse">
+    <rdfs:subClassOf rdf:resource="#Product"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Return">
+    <rdfs:subClassOf rdf:resource="#Product"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ReturnReason">
+    <rdfs:subClassOf rdf:resource="#Return"/>
+  </owl:Class>
+
+  <!-- Payment-related Classes -->
+  <owl:Class rdf:about="#Payment">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Invoice">
+    <rdfs:subClassOf rdf:resource="#Payment"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Billing">
+    <rdfs:subClassOf rdf:resource="#Payment"/>
+  </owl:Class>
+
+  <!-- Logistics-related Classes -->
+  <owl:Class rdf:about="#Logistics">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Transport">
+    <rdfs:subClassOf rdf:resource="#Logistics"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Tracking">
+    <rdfs:subClassOf rdf:resource="#Logistics"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ShippingRoute">
+    <rdfs:subClassOf rdf:resource="#Logistics"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CustomsClearance">
+    <rdfs:subClassOf rdf:resource="#Logistics"/>
+  </owl:Class>
+
+  <!-- Planning-related Classes -->
+  <owl:Class rdf:about="#Forecast">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Demand">
+    <rdfs:subClassOf rdf:resource="#Forecast"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Replenishment">
+    <rdfs:subClassOf rdf:resource="#Forecast"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MarketDemand">
+    <rdfs:subClassOf rdf:resource="#Forecast"/>
+  </owl:Class>
+
+  <!-- Risk and Compliance-related Classes -->
+  <owl:Class rdf:about="#SupplyChainRisk">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#TaxRegulation">
+    <rdfs:subClassOf rdf:resource="#SupplyChainRisk"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EnvironmentalCompliance">
+    <rdfs:subClassOf rdf:resource="#SupplyChainRisk"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SupplyChainAnalytics">
+    <rdfs:subClassOf rdf:resource="#SupplyChainRisk"/>
+  </owl:Class>
+
+  <!-- Strategy-related Classes -->
+  <owl:Class rdf:about="#InventoryPolicy">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PricingStrategy">
+    <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  </owl:Class>
+
+  <!-- Add Disjoint Classes -->
+  <owl:AllDisjointClasses>
+    <rdf:Description rdf:about="#Supplier"/>
+    <rdf:Description rdf:about="#Manufacturer"/>
+  </owl:AllDisjointClasses>
+
+  <!-- Add Inverse Properties -->
+  <owl:ObjectProperty rdf:about="#isSuppliedBy">
+    <owl:inverseOf rdf:resource="#supplies"/>
+    <rdfs:domain rdf:resource="#Product"/>
+    <rdfs:range rdf:resource="#Supplier"/>
+    <rdfs:comment>Inverse of the supplies property.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <!-- Add Sub-Properties -->
+  <owl:ObjectProperty rdf:about="#expressesInterestIn">
+    <rdfs:subPropertyOf rdf:resource="#interactsWith"/>
+    <rdfs:domain rdf:resource="#Customer"/>
+    <rdfs:range rdf:resource="#Product"/>
+    <rdfs:comment>Sub-property of interactsWith, specifically for expressing interest.</rdfs:comment>
+  </owl:ObjectProperty>
+
+
+
+  <!-- Object Properties with Annotations -->
+  <owl:ObjectProperty rdf:about="#supplies">
+    <rdfs:domain rdf:resource="#Supplier"/>
+    <rdfs:range rdf:resource="#Product"/>
+    <rdfs:comment>Defines the relationship where a supplier supplies products.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#placesOrder">
+    <rdfs:domain rdf:resource="#Customer"/>
+    <rdfs:range rdf:resource="#Order"/>
+    <rdfs:comment>Defines the relationship where a customer places an order.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#tracks">
+    <rdfs:domain rdf:resource="#Tracking"/>
+    <rdfs:range rdf:resource="#Shipment"/>
+    <rdfs:comment>Defines the relationship where tracking tracks a shipment.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#forecasts">
+    <rdfs:domain rdf:resource="#Forecast"/>
+    <rdfs:range rdf:resource="#Demand"/>
+    <rdfs:comment>Defines the relationship where a forecast forecasts demand.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#evaluates">
+    <rdfs:domain rdf:resource="#SupplierEvaluation"/>
+    <rdfs:range rdf:resource="#Supplier"/>
+    <rdfs:comment>Defines the relationship where supplier evaluation evaluates suppliers.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#predicts">
+    <rdfs:domain rdf:resource="#Demand"/>
+    <rdfs:range rdf:resource="#MarketDemand"/>
+    <rdfs:comment>Defines the relationship where demand predicts market demand.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#replenishes">
+    <rdfs:domain rdf:resource="#Replenishment"/>
+    <rdfs:range rdf:resource="#Inventory"/>
+    <rdfs:comment>Defines the relationship where replenishment replenishes inventory.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#bills">
+    <rdfs:domain rdf:resource="#Billing"/>
+    <rdfs:range rdf:resource="#Invoice"/>
+    <rdfs:comment>Defines the relationship where billing bills an invoice.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#processes">
+    <rdfs:domain rdf:resource="#ProductionLine"/>
+    <rdfs:range rdf:resource="#RawMaterial"/>
+    <rdfs:comment>Defines the relationship where a production line processes raw materials.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#assembles">
+    <rdfs:domain rdf:resource="#ComponentPart"/>
+    <rdfs:range rdf:resource="#FinishedGood"/>
+    <rdfs:comment>Defines the relationship where component parts assemble into finished goods.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#controls">
+    <rdfs:domain rdf:resource="#QualityControl"/>
+    <rdfs:range rdf:resource="#FinishedGood"/>
+    <rdfs:comment>Defines the relationship where quality control controls finished goods.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#packages">
+    <rdfs:domain rdf:resource="#PackagingMaterial"/>
+    <rdfs:range rdf:resource="#FinishedGood"/>
+    <rdfs:comment>Defines the relationship where packaging material packages finished goods.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#containsMaterial">
+    <rdfs:domain rdf:resource="#ShippingContainer"/>
+    <rdfs:range rdf:resource="#PackagingMaterial"/>
+    <rdfs:comment>Defines the relationship where a shipping container contains packaging material.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#transportsGoods">
+    <rdfs:domain rdf:resource="#TransportVehicle"/>
+    <rdfs:range rdf:resource="#ShippingContainer"/>
+    <rdfs:comment>Defines the relationship where a transport vehicle transports shipping containers.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#storesGoods">
+    <rdfs:domain rdf:resource="#DistributionCenter"/>
+    <rdfs:range rdf:resource="#FinishedGood"/>
+    <rdfs:comment>Defines the relationship where a distribution center stores finished goods.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#sellsGoods">
+    <rdfs:domain rdf:resource="#RetailStore"/>
+    <rdfs:range rdf:resource="#FinishedGood"/>
+    <rdfs:comment>Defines the relationship where a retail store sells finished goods.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#targets">
+    <rdfs:domain rdf:resource="#CustomerSegment"/>
+    <rdfs:range rdf:resource="#PromotionalCampaign"/>
+    <rdfs:comment>Defines the relationship where a promotional campaign targets a customer segment.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#covers">
+    <rdfs:domain rdf:resource="#SalesRegion"/>
+    <rdfs:range rdf:resource="#RetailStore"/>
+    <rdfs:comment>Defines the relationship where a sales region covers a retail store.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#analyzes">
+    <rdfs:domain rdf:resource="#SupplyChainAnalytics"/>
+    <rdfs:range rdf:resource="#SupplyChainRisk"/>
+    <rdfs:comment>Defines the relationship where supply chain analytics analyzes supply chain risks.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#compliesWith">
+    <rdfs:domain rdf:resource="#EnvironmentalCompliance"/>
+    <rdfs:range rdf:resource="#TaxRegulation"/>
+    <rdfs:comment>Defines the relationship where environmental compliance complies with tax regulations.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <!-- Example Annotations for Class Definitions -->
+  <owl:Class rdf:about="#Supplier">
+    <rdfs:comment>A supplier in the supply chain.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Product">
+    <rdfs:comment>A product that is part of the supply chain.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Order">
+    <rdfs:comment>An order placed by a customer in the supply chain.</rdfs:comment>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#interactsWith">
+    <rdfs:domain rdf:resource="#Customer"/>
+    <rdfs:range rdf:resource="#Product"/>
+    <rdfs:comment>Defines the interaction between customers and products.</rdfs:comment>
+  </owl:ObjectProperty>
+  
+  <!-- Refine class hierarchy -->
+  <owl:Class rdf:about="#FinishedGood">
+    <rdfs:subClassOf rdf:resource="#Product"/>
+    <rdfs:comment>A finished good is a product that is ready for sale.</rdfs:comment>
+  </owl:Class>  
+  <!-- Supplier Individuals -->
+  <owl:NamedIndividual rdf:about="#acmeSupplies">
+    <rdf:type rdf:resource="#Supplier"/>
+    <rdfs:comment>ACME Supplies, a fictional supplier</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Manufacturer Individuals -->
+  <owl:NamedIndividual rdf:about="#techGadgetsCorp">
+    <rdf:type rdf:resource="#Manufacturer"/>
+    <rdfs:comment>TechGadgets Corporation, a fictional manufacturer</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Product Individuals -->
+  <owl:NamedIndividual rdf:about="#smartphoneX">
+    <rdf:type rdf:resource="#FinishedGood"/>
+    <rdfs:comment>SmartphoneX, a fictional smartphone product</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Distributor Individuals -->
+  <owl:NamedIndividual rdf:about="#globalShippers">
+    <rdf:type rdf:resource="#Distributor"/>
+    <rdfs:comment>Global Shippers, a fictional distribution company</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Retailer Individuals -->
+  <owl:NamedIndividual rdf:about="#techMart">
+    <rdf:type rdf:resource="#RetailStore"/>
+    <rdfs:comment>TechMart, a fictional retail store</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Customer Individuals -->
+  <owl:NamedIndividual rdf:about="#johnDoe">
+    <rdf:type rdf:resource="#RetailCustomer"/>
+    <rdfs:comment>John Doe, a fictional retail customer</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Order Individuals -->
+  <owl:NamedIndividual rdf:about="#order12345">
+    <rdf:type rdf:resource="#Order"/>
+    <rdfs:comment>Order #12345, a fictional order</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Shipment Individuals -->
+  <owl:NamedIndividual rdf:about="#shipment67890">
+    <rdf:type rdf:resource="#Shipment"/>
+    <rdfs:comment>Shipment #67890, a fictional shipment</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <!-- Example of using properties to relate individuals -->
+  <rdf:Description rdf:about="#acmeSupplies">
+    <sc:supplies rdf:resource="#smartphoneX"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#johnDoe">
+    <sc:placesOrder rdf:resource="#order12345"/>
+  </rdf:Description>
+
+  <rdf:Description rdf:about="#techMart">
+    <sc:sellsGoods rdf:resource="#smartphoneX"/>
+  </rdf:Description>
+
+<!-- New Classes -->
+<owl:Class rdf:about="#SustainabilityInitiative">
+  <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>Represents sustainability initiatives in the supply chain.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SupplyChainTechnology">
+  <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>Represents technologies used in supply chain management.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#PerformanceMetric">
+  <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>Represents various performance metrics in the supply chain.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#SupplyChainEvent">
+  <rdfs:subClassOf rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>Represents significant events that occur in the supply chain.</rdfs:comment>
+</owl:Class>
+
+<!-- New Object Properties -->
+<owl:ObjectProperty rdf:about="#implementsSustainability">
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#SustainabilityInitiative"/>
+  <rdfs:comment>Defines the relationship where a supply chain concept implements a sustainability initiative.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#utilizesTechnology">
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#SupplyChainTechnology"/>
+  <rdfs:comment>Defines the relationship where a supply chain concept utilizes a specific technology.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#measuredBy">
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#PerformanceMetric"/>
+  <rdfs:comment>Defines the relationship where a supply chain concept is measured by a performance metric.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#triggersEvent">
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#SupplyChainEvent"/>
+  <rdfs:comment>Defines the relationship where a supply chain concept triggers a supply chain event.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#collaboratesWith">
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>Defines collaboration between different supply chain concepts.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#optimizes">
+  <rdfs:domain rdf:resource="#SupplyChainTechnology"/>
+  <rdfs:range rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>Defines the relationship where a supply chain technology optimizes a supply chain concept.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#reducesRiskOf">
+  <rdfs:domain rdf:resource="#SustainabilityInitiative"/>
+  <rdfs:range rdf:resource="#SupplyChainRisk"/>
+  <rdfs:comment>Defines the relationship where a sustainability initiative reduces a supply chain risk.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#enhancesPerformanceOf">
+  <rdfs:domain rdf:resource="#SupplyChainTechnology"/>
+  <rdfs:range rdf:resource="#PerformanceMetric"/>
+  <rdfs:comment>Defines the relationship where a supply chain technology enhances a performance metric.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#mitigates">
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#SupplyChainRisk"/>
+  <rdfs:comment>Defines the relationship where a supply chain concept mitigates a supply chain risk.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#contributsTo">
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#PerformanceMetric"/>
+  <rdfs:comment>Defines the relationship where a supply chain concept contributes to a performance metric.</rdfs:comment>
+</owl:ObjectProperty>
+<!-- SustainabilityInitiative Individuals -->
+<owl:NamedIndividual rdf:about="#greenPackaging">
+  <rdf:type rdf:resource="#SustainabilityInitiative"/>
+  <rdfs:comment>An initiative to use eco-friendly packaging materials</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#carbonOffsetProgram">
+  <rdf:type rdf:resource="#SustainabilityInitiative"/>
+  <rdfs:comment>A program to offset carbon emissions in the supply chain</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- SupplyChainTechnology Individuals -->
+<owl:NamedIndividual rdf:about="#blockchainTracing">
+  <rdf:type rdf:resource="#SupplyChainTechnology"/>
+  <rdfs:comment>Blockchain technology for supply chain traceability</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#aiDemandForecasting">
+  <rdf:type rdf:resource="#SupplyChainTechnology"/>
+  <rdfs:comment>AI-powered demand forecasting system</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- PerformanceMetric Individuals -->
+<owl:NamedIndividual rdf:about="#onTimeDelivery">
+  <rdf:type rdf:resource="#PerformanceMetric"/>
+  <rdfs:comment>Measure of on-time delivery performance</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#inventoryTurnover">
+  <rdf:type rdf:resource="#PerformanceMetric"/>
+  <rdfs:comment>Measure of inventory turnover rate</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- SupplyChainEvent Individuals -->
+<owl:NamedIndividual rdf:about="#naturalDisaster">
+  <rdf:type rdf:resource="#SupplyChainEvent"/>
+  <rdfs:comment>A natural disaster affecting the supply chain</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#majorProductLaunch">
+  <rdf:type rdf:resource="#SupplyChainEvent"/>
+  <rdfs:comment>A major product launch event</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Additional Supplier Individual -->
+<owl:NamedIndividual rdf:about="#ecoComponentsLtd">
+  <rdf:type rdf:resource="#Supplier"/>
+  <rdfs:comment>Eco Components Ltd., a supplier of eco-friendly components</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Additional Manufacturer Individual -->
+<owl:NamedIndividual rdf:about="#greenTechManufacturing">
+  <rdf:type rdf:resource="#Manufacturer"/>
+  <rdfs:comment>GreenTech Manufacturing, a sustainable technology manufacturer</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Additional Product Individual -->
+<owl:NamedIndividual rdf:about="#ecoFriendlyLaptop">
+  <rdf:type rdf:resource="#FinishedGood"/>
+  <rdfs:comment>An eco-friendly laptop model</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Additional Distributor Individual -->
+<owl:NamedIndividual rdf:about="#greenLogistics">
+  <rdf:type rdf:resource="#Distributor"/>
+  <rdfs:comment>Green Logistics, an eco-conscious distribution company</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Additional Retailer Individual -->
+<owl:NamedIndividual rdf:about="#sustainableTechStore">
+  <rdf:type rdf:resource="#RetailStore"/>
+  <rdfs:comment>Sustainable Tech Store, a retailer specializing in eco-friendly technology</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Additional Customer Individual -->
+<owl:NamedIndividual rdf:about="#ecoConsciousEnterprise">
+  <rdf:type rdf:resource="#WholesaleCustomer"/>
+  <rdfs:comment>Eco-Conscious Enterprise, a wholesale customer focused on sustainable products</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Additional Order Individual -->
+<owl:NamedIndividual rdf:about="#bulkEcoLaptopOrder">
+  <rdf:type rdf:resource="#Order"/>
+  <rdfs:comment>A bulk order for eco-friendly laptops</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Example relationships between individuals -->
+<rdf:Description rdf:about="#greenTechManufacturing">
+  <sc:implementsSustainability rdf:resource="#greenPackaging"/>
+  <sc:utilizesTechnology rdf:resource="#blockchainTracing"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ecoFriendlyLaptop">
+  <sc:measuredBy rdf:resource="#onTimeDelivery"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#majorProductLaunch">
+  <sc:triggersEvent rdf:resource="#bulkEcoLaptopOrder"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#greenLogistics">
+  <sc:collaboratesWith rdf:resource="#sustainableTechStore"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#aiDemandForecasting">
+  <sc:optimizes rdf:resource="#inventoryTurnover"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#carbonOffsetProgram">
+  <sc:reducesRiskOf rdf:resource="#naturalDisaster"/>
+</rdf:Description>
+
+<!-- Customer Individual -->
+<owl:NamedIndividual rdf:about="#techSavvyCorp">
+  <rdf:type rdf:resource="#WholesaleCustomer"/>
+  <rdfs:comment>TechSavvy Corp, a wholesale customer specializing in cutting-edge technology products</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Payment Individual -->
+<owl:NamedIndividual rdf:about="#invoice78901">
+  <rdf:type rdf:resource="#Invoice"/>
+  <rdfs:comment>Invoice #78901 for a large order of eco-friendly laptops</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Product Individual -->
+<owl:NamedIndividual rdf:about="#solarPoweredTablet">
+  <rdf:type rdf:resource="#FinishedGood"/>
+  <rdfs:comment>A solar-powered tablet, representing an innovative eco-friendly product</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Manufacturer Individual -->
+<owl:NamedIndividual rdf:about="#innovativeTechInc">
+  <rdf:type rdf:resource="#Manufacturer"/>
+  <rdfs:comment>Innovative Tech Inc., a manufacturer known for producing cutting-edge, sustainable electronics</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Order Individual -->
+<owl:NamedIndividual rdf:about="#order56789">
+  <rdf:type rdf:resource="#Order"/>
+  <rdfs:comment>Order #56789 for a mixed batch of eco-friendly laptops and solar-powered tablets</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Distributor Individual -->
+<owl:NamedIndividual rdf:about="#ecoFriendlyLogistics">
+  <rdf:type rdf:resource="#Distributor"/>
+  <rdfs:comment>Eco-Friendly Logistics, a distributor specializing in sustainable transportation and packaging methods</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Inventory Individual -->
+<owl:NamedIndividual rdf:about="#warehouseA">
+  <rdf:type rdf:resource="#Inventory"/>
+  <rdfs:comment>Warehouse A, holding inventory of various eco-friendly electronic products</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- SalesRegion Individual -->
+<owl:NamedIndividual rdf:about="#westCoastRegion">
+  <rdf:type rdf:resource="#SalesRegion"/>
+  <rdfs:comment>West Coast Region, representing the sales territory covering the western coastal areas</rdfs:comment>
+</owl:NamedIndividual>
+
+<!-- Example relationships between new and existing individuals -->
+<rdf:Description rdf:about="#techSavvyCorp">
+  <sc:placesOrder rdf:resource="#order56789"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#invoice78901">
+  <sc:bills rdf:resource="#order56789"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#innovativeTechInc">
+  <sc:supplies rdf:resource="#solarPoweredTablet"/>
+  <sc:utilizesTechnology rdf:resource="#blockchainTracing"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ecoFriendlyLogistics">
+  <sc:transportsGoods rdf:resource="#solarPoweredTablet"/>
+  <sc:implementsSustainability rdf:resource="#carbonOffsetProgram"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#warehouseA">
+  <sc:storesGoods rdf:resource="#solarPoweredTablet"/>
+  <sc:measuredBy rdf:resource="#inventoryTurnover"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#westCoastRegion">
+  <sc:covers rdf:resource="#sustainableTechStore"/>
+</rdf:Description>
+
+<!-- Sub-property relationships -->
+<owl:ObjectProperty rdf:about="#suppliesRawMaterial">
+  <rdfs:subPropertyOf rdf:resource="#supplies"/>
+  <rdfs:domain rdf:resource="#Supplier"/>
+  <rdfs:range rdf:resource="#RawMaterial"/>
+  <rdfs:comment>Specifies that a supplier provides raw materials, a more specific form of supplying.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#suppliesComponent">
+  <rdfs:subPropertyOf rdf:resource="#supplies"/>
+  <rdfs:domain rdf:resource="#Supplier"/>
+  <rdfs:range rdf:resource="#ComponentPart"/>
+  <rdfs:comment>Specifies that a supplier provides component parts, a more specific form of supplying.</rdfs:comment>
+</owl:ObjectProperty>
+
+<!-- Inverse properties -->
+<owl:ObjectProperty rdf:about="#isSuppliedBy">
+  <owl:inverseOf rdf:resource="#supplies"/>
+  <rdfs:domain rdf:resource="#Product"/>
+  <rdfs:range rdf:resource="#Supplier"/>
+  <rdfs:comment>The inverse of the supplies relationship.</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#placedBy">
+  <owl:inverseOf rdf:resource="#placesOrder"/>
+  <rdfs:domain rdf:resource="#Order"/>
+  <rdfs:range rdf:resource="#Customer"/>
+  <rdfs:comment>The inverse of the placesOrder relationship.</rdfs:comment>
+</owl:ObjectProperty>
+
+<!-- Equivalent properties -->
+<owl:ObjectProperty rdf:about="#ships">
+  <owl:equivalentProperty rdf:resource="#transportsGoods"/>
+  <rdfs:comment>Shipping is equivalent to transporting goods in this context.</rdfs:comment>
+</owl:ObjectProperty>
+
+<!-- Disjoint properties -->
+<owl:AllDisjointProperties>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#supplies"/>
+    <rdf:Description rdf:about="#placesOrder"/>
+    <rdf:Description rdf:about="#sells"/>
+  </owl:members>
+  <rdfs:comment>These properties are mutually exclusive in their primary usage.</rdfs:comment>
+</owl:AllDisjointProperties>
+
+<!-- Transitive property -->
+<owl:ObjectProperty rdf:about="#isPartOf">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>Represents hierarchical relationships in the supply chain. If A is part of B, and B is part of C, then A is part of C.</rdfs:comment>
+</owl:ObjectProperty>
+
+<!-- Symmetric property -->
+<owl:ObjectProperty rdf:about="#collaboratesWith">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:domain rdf:resource="#SupplyChainConcept"/>
+  <rdfs:range rdf:resource="#SupplyChainConcept"/>
+  <rdfs:comment>If A collaborates with B, then B collaborates with A.</rdfs:comment>
+</owl:ObjectProperty>
+
+<!-- Functional property -->
+<owl:ObjectProperty rdf:about="#hasPrimarySupplier">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Manufacturer"/>
+  <rdfs:range rdf:resource="#Supplier"/>
+  <rdfs:comment>Each manufacturer has exactly one primary supplier.</rdfs:comment>
+</owl:ObjectProperty>
+</rdf:RDF>
+
+
+
+
+
+
