@@ -1,4 +1,4 @@
-# Supply Chain Ontology README
+# Supply Chain Ontology 
 
 ## Overview
 
